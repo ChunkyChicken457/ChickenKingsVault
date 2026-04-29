@@ -5,17 +5,6 @@
     <meta charset="UTF-8">
     <title>Univeristy of Adelaide</title>
     <style>
-        .discord-link {
-            margin: 20px 0;
-            font-size: 18px;
-        }
-        .discord-link a {
-            color: #7289DA;
-            text-decoration: none;
-        }
-        .discord-link a:hover {
-            text-decoration: underline;
-        }
         body {
             display: flex;
             flex-direction: column;
@@ -23,8 +12,15 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background: #222;
+            background: linear-gradient(45deg, #ff4500, #ff0000, #cc0000, #ff6600);
+            background-size: 400% 400%;
+            animation: gradientCycle 8s ease infinite;
             color: #fff;
+        }
+        @keyframes gradientCycle {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .site-logo {
             font-size: 2.2rem;
@@ -37,7 +33,7 @@
             gap: 0.6rem;
             padding: 8px 14px;
             border-radius: 16px;
-            background: #222;
+            background: rgba(0,0,0,0.2);
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         .logo-icon {
@@ -45,6 +41,7 @@
             height: 32px;
             object-fit: contain;
             display: inline-block;
+            cursor: pointer;
         }
         .center-content {
             text-align: center;
@@ -72,20 +69,17 @@
             max-width: calc(100% - 40px);
             padding: 10px 14px;
             border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.25);
             color: #fff;
             font-size: 16px;
             outline: none;
             box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
-        .search-input::placeholder { color: rgba(255,255,255,0.55); }
-        .search-count {
-            display: none;
-        }
+        .search-input::placeholder { color: rgba(255,255,255,0.6); }
         .no-results {
             margin-top: 18px;
-            color: #ff6b6b;
+            color: #ffcccc;
             font-weight: bold;
             display: none;
         }
@@ -112,11 +106,11 @@
         }
         .game-link:hover {
             transform: translateY(-6px);
-            filter: brightness(1.08);
+            filter: brightness(1.15);
         }
         .game-link:hover img {
             transform: scale(1.05);
-            box-shadow: 0 6px 22px rgba(255,255,255,0.25);
+            box-shadow: 0 6px 22px rgba(255,100,50,0.4);
         }
         .game-link:hover div {
             text-decoration: underline;
@@ -150,19 +144,32 @@
         }
         .game-rand:hover {
             transform: translateY(-6px);
-            filter: brightness(1.08);
+            filter: brightness(1.15);
         }
         .game-rand:hover img {
             transform: scale(1.05);
-            box-shadow: 0 6px 22px rgba(255,255,255,0.25);
+            box-shadow: 0 6px 22px rgba(255,100,50,0.4);
         }
         .game-rand:hover div {
             text-decoration: underline;
             filter: brightness(1.2);
         }
+        button {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
+    <h1 class="site-logo"><a onclick="spinnywheel(true)" class="logo-icon"><img src="favicon.png" alt="logo"></a>Chicken Kings Vault<a href="https://youtu.be/BXJjBo_u3WM?si=U_8QGjcfUxvZm0IM" target="_blank" class="logo-icon"><img src="favicon.png" alt="logo"></a></h1>
     <div class="center-content">
         <p>might be a cool game or something</p>
         <div class="random">
