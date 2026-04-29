@@ -17,6 +17,11 @@
             animation: gradientCycle 8s ease infinite;
             color: #fff;
         }
+        body.smith-mode {
+            background: url('gameimages/smithmode.jpg') repeat;
+            background-size: auto;
+            animation: none;
+        }
         @keyframes gradientCycle {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -180,6 +185,7 @@
             <input id="search-input" class="search-input" type="search" placeholder="Search games..." aria-label="Search games">
         </div>
         <button onclick="spinnywheel()">spinny</button>
+        <button onclick="toggleSmithMode()">Smith Mode</button>
         <div class="game-list">
         </div>
         <div id="no-results" class="no-results">No games match your search.</div>
@@ -223,6 +229,9 @@
                 clearInterval(inbt);
                 inbt = null;
             }
+        }
+        function toggleSmithMode() {
+            document.body.classList.toggle('smith-mode');
         }
     </script>
     <script>
