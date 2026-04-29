@@ -46,32 +46,6 @@
             object-fit: contain;
             display: inline-block;
         }
-        .discord-top-right {
-            position: fixed;
-            top: 14px;
-            right: 14px;
-            z-index: 999;
-            background: #5865F2;
-            border-radius: 12px;
-            width: 46px;
-            height: 46px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-        }
-        .discord-top-right img {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-        }
-        .discord-top-right a {
-            display: inline-flex;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-        }
         .center-content {
             text-align: center;
         }
@@ -124,57 +98,6 @@
             font-size: 1.2em;
             width: 100%;
             max-width: 220px;
-        }
-        .game-link img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-            margin-bottom: 10px;
-        }
-        .game-link:hover {
-            text-decoration: underline;
-        }
-        .random {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .game-rand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 0.8em;
-            width: 100%;
-            max-width: 220px;
-        }
-        .game-rand img {
-            width: 50%;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-            margin-bottom: 10px;
-        }
-        .game-rand:hover {
-            text-decoration: underline;
-        }
-    
-        /* --- Added Hover Effects --- */
-        .game-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.2em;
-            width: 100%;
-            max-width: 220px;
             transition: transform 0.25s ease, filter 0.25s ease;
         }
         .game-link img {
@@ -199,7 +122,11 @@
             text-decoration: underline;
             filter: brightness(1.2);
         }
-
+        .random {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .game-rand {
             display: flex;
             flex-direction: column;
@@ -236,12 +163,6 @@
     </style>
 </head>
 <body>
-    <div class="discord-top-right">
-        <a href="https://discord.gg/RgGKcZxq4T" target="_blank" rel="noopener noreferrer" aria-label="Join the Discord server">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord logo" />
-        </a>
-    </div>
-    <h1 class="site-logo"><a onclick="spinnywheel(true)" class="logo-icon"><img src="favicon.png" alt="logo"></a>Chicken Kings Vault<a href="https://youtu.be/BXJjBo_u3WM?si=U_8QGjcfUxvZm0IM" target="_blank" class="logo-icon"><img src="favicon.png" alt="logo"></a></h1>
     <div class="center-content">
         <p>might be a cool game or something</p>
         <div class="random">
@@ -256,14 +177,12 @@
         </div>
         <div id="no-results" class="no-results">No games match your search.</div>
     </div>
-    <!--leave this script block empty it's only here to load games.js-->
     <script src="games.js"></script>
     <script>
         const gameList = document.querySelector('.game-list')
         let spinny = false
         let inbt = null
         let number = 0;
-        // adds all the games
         function a(){
             document.querySelector(".game-list").innerHTML = games;
         }
@@ -288,7 +207,6 @@
             if(reset === true){number=0; gameList.style.transform = `rotate(${0}deg)`; return}
             if(!spinny){
                 spinny = true;
-
                 inbt = setInterval(() => {
                     number++;
                     gameList.style.transform = `rotate(${number}deg)`;
@@ -319,7 +237,6 @@
             const gameList = document.querySelectorAll('.game-link');
             const noResults = document.getElementById('no-results');
             const total = gameList.length;
-            // initialize placeholder with total games
             if(input){
                 input.placeholder = `Search ${total} Games...`;
                 input.setAttribute('aria-label', `Search ${total} Games...`);
@@ -348,7 +265,6 @@
             }
 
             input.addEventListener('input', filterGames);
-            
             input.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ input.value = ''; filterGames(); } });
         })();
     </script>
